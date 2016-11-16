@@ -1,0 +1,16 @@
+1£¨∂ØÃ¨º”‘ÿjs
+https://rawgit.com/jianyeruan80/ocLazyLoad/master/dist/ocLazyLoad.min.js
+angular.module("LazyLoadTest", ["oc.lazyLoad"])
+                .controller("TestController", function($scope, $ocLazyLoad, $compile) {
+                    $ocLazyLoad.load("js/testApp.js").then(function() {
+                        console.log('loaded!!');
+                        var el, elToAppend;
+                        elToAppend = $compile('<say-hello to="world"></say-hello>')($scope);
+                        el = angular.element('#example');
+                        el.append(elToAppend);
+                    }, function(e) {
+                        console.log('errr');
+                        console.error(e);
+                    })
+                });
+2.ui-sref="home.special"
